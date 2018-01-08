@@ -1,5 +1,1 @@
-int main()
-{
-    return -1;
-    //on linux, echo $? will output 255
-}
+//no code exercise

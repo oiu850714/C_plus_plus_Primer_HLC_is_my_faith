@@ -1,5 +1,4 @@
-int main()
-{
-    return -1;
-    //on linux, echo $? will output 255
+int main() {
+  return -1;
+  // on linux, echo $? will output 255
 }

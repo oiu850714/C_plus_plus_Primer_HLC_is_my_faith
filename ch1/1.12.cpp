@@ -1,11 +1,10 @@
 #include <iostream>
 
-int main()
-{
-    int sum = 0; 
-    for (int i = -100; i <= 100; ++i)
-        sum += i;
-    std:: cout << sum << std::endl;
+int main() {
+  int sum = 0;
+  for (int i = -100; i <= 100; ++i)
+    sum += i;
+  std::cout << sum << std::endl;
 }
 /*
  * it iterates from i = -100 to i = 100

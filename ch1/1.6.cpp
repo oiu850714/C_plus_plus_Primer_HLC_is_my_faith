@@ -1,4 +1,4 @@
-//no code
+// no code
 /*
     The following program fragment is illegal:
     std::cout << "The sum of " << v1; << " and " << v2;

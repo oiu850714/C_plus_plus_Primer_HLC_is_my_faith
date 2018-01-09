@@ -29,8 +29,14 @@ int main()
             cur_item = new_item;
         }
     }
-    std::cout << "number of transactions: " << num_transactions << std::endl;
-    std::cout << cur_item << std::endl;
-
-    return 0;
+    if(has_input_one_item_flag)
+    {   std::cout << "number of transactions: " << num_transactions << std::endl;
+        std::cout << cur_item << std::endl;
+        return 0;
+    }
+    else
+    {
+        std::cout << "No data?!" << std::endl;
+        return 1;
+    }
 }

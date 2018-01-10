@@ -28,4 +28,6 @@ int main() {
  *
  * If there are no duplicated values, when different values input, a new line
  * will be printed if you click Enter.
+ * QUOTE FROM https://github.com/chihyang/CPP_Primer/tree/master/chap01 Exercise
+ * 1.17
  */

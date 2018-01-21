@@ -32,4 +32,8 @@ int main() {
   int *pi = (int *)&slope;
   cout << *pi << endl;
   // above four lines very shitty
+
+  const double *dp = const_cast<const double *>(&slope);
+  dp = const_cast<double *>(&slope);
+  // const_cast can "cast away" or vise versa to a type
 }

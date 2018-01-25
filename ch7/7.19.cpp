@@ -6,6 +6,11 @@ std::ostream &print(std::ostream &os, const Person &person);
 std::istream &read(std::istream &is, Person &person);
 
 class Person {
+  // let two nonmember function that are part of class' interface access class'
+  // private members
+  friend std::ostream &print(std::ostream &os, const Person &person);
+  friend std::istream &read(std::istream &is, Person &person);
+
 private:
   std::string name;
   std::string address;
@@ -28,16 +33,11 @@ public:
 };
 
 std::ostream &print(std::ostream &os, const Person &person) {
-  os << person.get_name() << " " << person.get_address();
+  os << person.name << " " << person.address;
   return os;
 }
 
-// in order to modify Person's member, we need setter functions
 std::istream &read(std::istream &is, Person &person) {
-  std::string buffer;
-  std::cin >> buffer;
-  person.set_name(buffer);
-  std::cin >> buffer;
-  person.set_address(buffer);
+  is >> person.name >> person.address;
   return is;
 }

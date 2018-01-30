@@ -14,31 +14,34 @@ using std::list;
 using std::vector;
 using std::forward_list;
 
+// ex 9.28
 void func(forward_list<string> &flst, string &str1, string &str2) {
-  auto last_iter = flst.before_begin();
-  for (const auto &e : flst)
-    last_iter++;
-  // let prev point to last element
-
+  auto prev = flst.before_begin();
   auto curr = flst.begin();
   bool flag = false;
 
   while (curr != flst.end()) {
     if (*curr == str1) {
       curr = flst.insert_after(curr, str2);
-      flag = true;
       // insert_after return iterator to the last insert element
+      prev = curr++;
+      flag = true;
+    } else {
+      ++curr;
+      ++prev;
     }
-    ++curr;
   }
   if (!flag)
-    flst.insert_after(last_iter, str2);
+    flst.insert_after(prev, str2);
 }
 
-/* test main
 int main() {
   forward_list<string> flst{"hsilu", "super", "cute", "but",  "J7",
                             "sucks", "cute",  "cure", "cute", "cute"};
+  for (const auto &e : flst)
+    cout << e << " ";
+  cout << endl;
+
   string s1{"cute"}, s2{"LOVE"};
   func(flst, s1, s2);
 
@@ -53,4 +56,3 @@ int main() {
     cout << e << " ";
   cout << endl;
 }
-*/

@@ -40,9 +40,7 @@ map<string, string> buildMap(ifstream &map_file) {
 
 void word_transform(ifstream &map_file, ifstream &input) {
   auto trans_map = buildMap(map_file); // store the transformations
-  for (auto e : trans_map) {
-    cout << "word: " << e.first << ", phrase: " << e.second << endl;
-  }
+
   string text;
   // hold each line from the input
   while (getline(input, text)) { // read a line of input

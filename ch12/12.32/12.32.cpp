@@ -38,7 +38,7 @@ TextQuery::TextQuery(ifstream &is) : file(new StrBlob) {
       if (!lines)             // that pointer is null the first time we see word
         lines.reset(new set<line_no>); // allocate a new set
       lines->insert(n);
-      // insert this line number } }
+      // insert this line number
     }
   }
 }

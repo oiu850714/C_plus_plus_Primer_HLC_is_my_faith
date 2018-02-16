@@ -22,6 +22,8 @@ void runQueries(ifstream &is) {
   // Both are acceptable in this case I think...
 }
 
+// compile command: $(compiler) 12.32_main.cpp 12.32.cpp ../12.22.cpp
+
 int main() {
   cout << "input file name: ";
   string file_name;

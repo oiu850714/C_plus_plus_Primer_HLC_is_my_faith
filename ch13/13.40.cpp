@@ -1,4 +1,5 @@
-#include "13.39.h"
+#include "13.40.h"
+#include <initializer_list>
 #include <memory>
 #include <string>
 #include <utility>
@@ -7,6 +8,7 @@
 using std::string;
 using std::allocator;
 using std::pair;
+using std::initializer_list;
 
 // allocmust be defined in the StrVec implmentation file
 allocator<string> StrVec::alloc;
@@ -43,13 +45,21 @@ void StrVec::free() {
   }
 }
 
-StrVec::StrVec(const StrVec &s) {
-  // call alloc_n_copy to allocate exactly as many elements as in s
-  auto newdata = alloc_n_copy(s.begin(), s.end());
+void StrVec::range_initailize(const string *begin, const string *end) {
+  auto newdata = alloc_n_copy(begin, end);
   elements = newdata.first;
   first_free = cap = newdata.second;
 }
 
+StrVec::StrVec(const StrVec &s) {
+  // call alloc_n_copy to allocate exactly as many elements as in s
+  range_initailize(s.begin(), s.end());
+}
+
+StrVec::StrVec(const initializer_list<string> &il) {
+  range_initailize(il.begin(),
+                   il.end()); // Awesome!! il.begin() il.end() return string*
+}
 StrVec::~StrVec() { free(); }
 
 StrVec &StrVec::operator=(const StrVec &rhs) {

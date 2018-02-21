@@ -143,7 +143,8 @@ StrBlobPtr &StrBlobPtr::incr() {
   // if curr already points past the end of the container, can’t increment it
   check(curr, "increment past end of StrBlobPtr");
   ++curr;
-  // advance the current state return *this;
+  // advance the current state
+  return *this;
 }
 
 int main() {

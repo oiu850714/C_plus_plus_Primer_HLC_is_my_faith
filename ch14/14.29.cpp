@@ -1,0 +1,1 @@
+// because increment/decrement will change object's state

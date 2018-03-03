@@ -1,0 +1,1 @@
+// member functions will use smart_ptr to access indirectly

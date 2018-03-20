@@ -41,10 +41,7 @@ public:
   Query(const std::string &); // builds a new WordQuery
   // interface functions: call the corresponding Query_base operations
   QueryResult eval(const TextQuery &t) const { return q->eval(t); }
-  std::string rep() const {
-    std::cout << "Query::rep\n";
-    return q->rep();
-  }
+  std::string rep() const { return q->rep(); }
 
 private:
   Query(std::shared_ptr<Query_base> query) : q(query) {}
@@ -56,10 +53,7 @@ class WordQuery : public Query_base {
   WordQuery(const std::string &s) : query_word(s) {}
   // concrete class: WordQuery defines all inherited pure virtual functions
   QueryResult eval(const TextQuery &t) const { return t.query(query_word); }
-  std::string rep() const {
-    std::cout << "WordQuery::rep\n";
-    return query_word;
-  }
+  std::string rep() const { return query_word; }
   std::string query_word; // word for which to search
 };
 
@@ -67,10 +61,7 @@ class NotQuery : public Query_base {
   friend Query operator~(const Query &);
   NotQuery(const Query &q) : query(q) {}
   // concrete class: NotQuery defines all inherited pure virtual functions
-  std::string rep() const {
-    std::cout << "NotQuery::rep\n";
-    return "~(" + query.rep() + ")";
-  }
+  std::string rep() const { return "~(" + query.rep() + ")"; }
   QueryResult eval(const TextQuery &) const;
   Query query;
 };
@@ -81,7 +72,6 @@ protected:
       : lhs(l), rhs(r), opSym(s) {}
   // abstract class: BinaryQuery doesn’t define eval
   std::string rep() const {
-    std::cout << "BinaryQuery::rep\n";
     return "(" + lhs.rep() + " " + opSym + " " + rhs.rep() + ")";
   }
   Query lhs, rhs;    // right- and left-hand operands

@@ -1,34 +1,21 @@
 #include "include/Sales_item.h"
-#include <iostream>
-
 
 int main() {
-  Sales_item cur_item, new_item;
-  int has_input_one_item_flag = 0;
-  int num_transactions = 0;
-  while (std::cin >> new_item) {
-    if (cur_item.isbn() == new_item.isbn()) {
-      cur_item += new_item;
-      num_transactions++;
-    } else {
-      if (has_input_one_item_flag) {
-        std::cout << "number of transactions: " << num_transactions
-                  << std::endl;
-        std::cout << cur_item << std::endl;
-      } else {
-        has_input_one_item_flag = 1;
-        num_transactions = 1;
-      }
-      num_transactions = 1;
-      cur_item = new_item;
+    Sales_item pre_record, new_record;
+    if (std::cin >> pre_record) {
+        int count = 1;
+        while (std::cin >> new_record) {
+            if (pre_record.isbn() == new_record.isbn()) {
+                count++;
+            } else {
+                std::cout << "the book of ISBN " << pre_record.isbn()
+                    << " has " << count << " transactions" << std::endl;
+
+                pre_record = new_record;
+                count = 1;
+            }
+        }
+        std::cout << "the book of ISBN " << pre_record.isbn()
+            << " has " << count << " transactions" << std::endl;
     }
-  }
-  if (has_input_one_item_flag) {
-    std::cout << "number of transactions: " << num_transactions << std::endl;
-    std::cout << cur_item << std::endl;
-    return 0;
-  } else {
-    std::cout << "No data?!" << std::endl;
-    return 1;
-  }
 }

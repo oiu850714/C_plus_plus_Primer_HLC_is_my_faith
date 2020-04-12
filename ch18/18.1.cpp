@@ -11,6 +11,6 @@ int main() {
   throw * p;
   // expression type is std::exception
 
-  // If expression is throw *p; that will be UB because local object will be
+  // If expression is throw p; that will be UB because local object will be
   // destroyed when the corresponding block is unwinded
 }

@@ -7,7 +7,7 @@ int main() {
   } catch (std::exception &e) {
     // base class is std::exception, so using std::exception parameter call
     // catch all types of exception in the hierarchy
-    std::cout << e.what() << std::endl;
+    std::cerr << e.what() << std::endl;
     abort();
   }
 }

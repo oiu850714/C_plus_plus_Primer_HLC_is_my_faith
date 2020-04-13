@@ -8,8 +8,7 @@ matrix operator*(const matrix &, const matrix &);
 } // namespace mathLib
 
 // somthing shitty like this
-mathLib::MatrixLib::matrix mathLib::MatrixLib::operator*(const matrix &,
-                                                         const matrix &) {
+auto mathLib::MatrixLib::operator*(const matrix &, const matrix &) -> matrix {
   /* ... */
   return matrix();
 }

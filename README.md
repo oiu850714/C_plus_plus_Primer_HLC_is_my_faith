@@ -1,1 +1,1 @@
-## A solution for C++ Primer 5th
+## Exercise solutions for C++ Primer 5th
